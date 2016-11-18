@@ -8,7 +8,7 @@ public class tema4_ej07_alex {
 		String frase, numeros="0123456789";
 		int i=0, k=0, min=0, may=0, num=0;
 		boolean cosa=true;
-		System.out.println("Introduce puto: ");
+		System.out.println("Introduce la frase: ");
 		frase=teclado.nextLine();
 		while(frase.length()>i){
 			cosa=true;

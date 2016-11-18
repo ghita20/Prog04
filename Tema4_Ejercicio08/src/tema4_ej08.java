@@ -18,6 +18,8 @@ public class tema4_ej08 {
 			case 2:
 				//Llamo a la función Decodificar
 				Decodificar(); break;
+			default:
+				System.out.println("Opción incorrecta!");
 			}
 			System.out.println("Repetir? (s/n): ");
 			repetir=teclado.nextLine().charAt(0);
