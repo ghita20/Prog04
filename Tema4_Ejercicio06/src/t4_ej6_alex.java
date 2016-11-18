@@ -7,18 +7,43 @@ public class t4_ej6_alex {
 		Scanner teclado=new Scanner(System.in);
 		String frase, vocales="aeiou", numero="0123456789";
 		int i=0,k=0,n=0,vocal=0,numeros=0,consonante=0;
-		frase=teclado.nextLine();
+		boolean cosa=true;
+		do{
+			System.out.println("Introduce una frase: ");
+			frase=teclado.nextLine().toLowerCase();
+		}while(frase.length()>80);
 		while(i<frase.length()){
-			while(k<numero.length()){
+			k=0; cosa=true;
+
+			while(k<numero.length() && cosa){
+
 				if(frase.charAt(i)==numero.charAt(k)){
-					numeros++;
-					i++;
-					k=0;}
-				else 
-					k++;
+					numeros++;	
+					cosa=false;
 				}
-			}System.out.println(numeros);
-		}
-	}
+
+				k++;
+			}
+			if(cosa==true){
+				k=0;
+			while(k<vocales.length() && cosa){
+				if(frase.charAt(i)==vocales.charAt(k)){
+					vocal++;
+					cosa=false;}		
+				k++;	
+			}//final vocales
+			if(cosa==true)
+				if(frase.charAt(i)>'a' && frase.charAt(i)<='z')
+				consonante++;
+			}
+			
+					
+				
+					
+
+			i++;
+		}System.out.println("Numeros= "+ numeros +" Vocales: "+ vocal +" Consonantes: "+ consonante);
+	}}
+
 
 
