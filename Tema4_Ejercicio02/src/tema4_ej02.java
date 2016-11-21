@@ -1,3 +1,4 @@
+//Pide una frase de max. 80 caracteres y imprime cuántas mayusculas y minusculas hay
 import java.util.Scanner;
 
 public class tema4_ej02 {
@@ -12,16 +13,19 @@ public class tema4_ej02 {
 			System.out.println("Introduce la frase");
 			frase=teclado.nextLine();
 			
-		}while(frase.length()>80);
+		}while(frase.length()>80);//max. 80 caracteres
 		
+		//recorro cada char de la frase
 		for(int i=0;i<frase.length();i++){
-			
-			if(Character.isAlphabetic(frase.charAt(i))){
-			mayuscula=frase.charAt(i)==Character.toUpperCase(frase.charAt(i))?++mayuscula:mayuscula;
-			minuscula=frase.charAt(i)==Character.toLowerCase(frase.charAt(i))?++minuscula:minuscula;
-			}
+			//si el carácter es alfabetico
+			if(Character.isAlphabetic(frase.charAt(i)))
+				//si el caracter es mayuscula
+				if(frase.charAt(i)==Character.toUpperCase(frase.charAt(i)))
+					mayuscula++;
+				else //si no es mayuscula será minuscula
+					minuscula++;
 		
-		}
+		}//fin del for
 		System.out.println(mayuscula +" carácteres en mayúscula.");
 		System.out.println(minuscula +" carácteres en minúscula.");
 	}
