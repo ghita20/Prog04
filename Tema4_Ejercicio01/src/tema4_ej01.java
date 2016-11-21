@@ -10,7 +10,7 @@ public class tema4_ej01 {
 		int i=1;
 		
 		do{
-			System.out.println("Introduce la frase");
+			System.out.println("Introduce la frase: ");
 			frase=teclado.nextLine();
 		}while(frase.length()>80); //Max. 80 carácteres
 		
