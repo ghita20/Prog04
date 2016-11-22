@@ -73,7 +73,6 @@ public class tema4_ej08 {
 		Scanner teclado=new Scanner(System.in);
 		String fraseCodificada="";
 
-		frase=frase.toUpperCase();
 		for(int i=0;i<frase.length();i++)
 			//aumento la posicion del caracter x veces(segun el numero introducido)
 			//y después guardo ese caracter en fraseCodificada
@@ -90,10 +89,11 @@ public class tema4_ej08 {
 		Scanner teclado=new Scanner(System.in);
 		String fraseDeCodificada="";
 		
-		frase=frase.toUpperCase();
 		for(int i=0;i<frase.length();i++)
+			//a cada caracter de la frase le resto el numero introducido
 			fraseDeCodificada+=(char)(frase.charAt(i)-numero);
-
+		
+		//imprimo la frase decodificada
 		System.out.println(fraseDeCodificada);
 
 	}
@@ -101,25 +101,28 @@ public class tema4_ej08 {
 	public static String pedirFrase(){
 		Scanner teclado=new Scanner(System.in);
 		String frase;
-
+		
+		//pido la frase
 		System.out.println("Introduce una frase: ");
 		frase=teclado.nextLine();
-
+		
+		//la pongo en mayuscula
 		frase=frase.toUpperCase();
-
+		//dvuelvo la frase
 		return frase;
 	}
 	
 	public static int pedirNumero(){
 		Scanner teclado=new Scanner(System.in);
 		int numero;
-		
+		//pido el numero
 		do{
 			System.out.println("Introduce un numero entre 1 y 10: ");
 			numero=teclado.nextInt();
 
-		}while(numero>10 && numero<1);
+		}while(numero>10 && numero<1);//mientras el numero no este entre 1 y 10 lo vuelvo a pedir
 		
+		//devuelvo el numero introducido
 		return numero;
 	}
 
