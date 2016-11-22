@@ -1,3 +1,4 @@
+//Lee una fras y imprime los caracteres en posicion par e impar
 import java.util.Scanner;
 
 public class tema4_ej05 {
