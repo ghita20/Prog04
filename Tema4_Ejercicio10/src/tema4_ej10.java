@@ -23,6 +23,7 @@ public class tema4_ej10 {
 			letra=frase.charAt(i);
 			//si la letra ya ha sido comprobada no quiero comprobarla otra vez
 			if(!(letrasEncontradas.indexOf(letra)>=0)){
+				System.out.println("comprobando");
 				//reinicio la frecuencia para cada letra
 				frecuencia=0;
 				
@@ -33,7 +34,8 @@ public class tema4_ej10 {
 				System.out.println("La letra " +letra +" tiene una frecuencia de: " +100*((float)frecuencia/frase.length()) +"%");
 			//agrego la letra a letras encontradas
 			letrasEncontradas+=letra;
-			}
+			}else
+				System.out.println("ya sta comprobada");
 			
 			
 				
