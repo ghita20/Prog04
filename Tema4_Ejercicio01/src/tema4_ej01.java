@@ -1,4 +1,4 @@
-//Programa que lle una frase de max. 80 caracteres y imprime progresivamente
+//Programa que lee una frase de max. 80 caracteres y imprime progresivamente
 import java.util.Scanner;
 
 public class tema4_ej01 {

@@ -1,57 +1,77 @@
-//Programa que pide codificar o decodificar una frase
+//Programa que pide codificar o decodificar una fras
 //Codificar: dado un numero x, aumenta cada palabra x posiciones más
 //Decodificar: dado un numero x, resta cada palabra x posiciones menos
+//eleccion: pide dos opciones :Codificar o Decodificar
 import java.util.Scanner;
 public class tema4_ej08 {
 
 	public static void main(String[] args) {
 		Scanner teclado=new Scanner(System.in);
-		int opcion;
-		char repetir;
+		int opcion,numero;
+		boolean repetir;
+		String frase;
+		
 		do{
+			//pido la frase
+			frase=pedirFrase();
+			//pido el numero
+			numero=pedirNumero();
+			//la opción será lo que la función eleccion dvuelva
 			opcion= eleccion();
-
+			
 			switch(opcion){
-			case 1:
-				//Llamo a la función Codificar
-				Codificar(); break;
-			case 2:
-				//Llamo a la función Decodificar
-				Decodificar(); break;
-			default:
-				System.out.println("Opción incorrecta!");
+			case 1://si devuelve 1
+				//Llamo a la función Codificar y le envio la frase y el numero
+				Codificar(frase, numero); break;
+			case 2://si devuelve 2
+				//Llamo a la función Decodificar y le envio la frase y el numero
+				Decodificar(frase, numero); break;
 			}
-			System.out.println("Repetir? (s/n): ");
-			repetir=teclado.nextLine().charAt(0);
+			
+			//llamo a la función repetir
+			repetir=repetir();
 
-		}while(repetir=='s');
+		}while(repetir); //hace el bucle hasta que repetir sea falso
 
 
 	}
 
+	public static boolean repetir(){
+		Scanner teclado=new Scanner(System.in);
+		char opcion;
+		
+		do{
+			System.out.println("Repetir? (s/n): ");
+			opcion=teclado.nextLine().charAt(0);
+		
+		}while(opcion!='s' && opcion!='n');
+		
+		//si la opción elegida es s retorno true
+		if(opcion=='s')
+			return true;
+		else
+			return false;//si es n retorno false
+		
+	}
+	
+	//está función la utilizo imprimir el menú de opciones y pedir una
 	public static int eleccion(){
 		Scanner teclado=new Scanner(System.in);
 		int opcion;
+		
 		do{
 			System.out.println("Elige una opción: ");
 			System.out.println("1. Codificar 2. Decodificar");
 			opcion=teclado.nextInt();
-		}while(opcion<1 && opcion>2);
+		}while(opcion<1 || opcion>2);
+		//devuelvo la opción elegida
 		return opcion;
 	}
 
-
-	public static void Codificar(){
+	//aqui codifico la palabra ingresada
+	public static void Codificar(String frase, int numero){
 		Scanner teclado=new Scanner(System.in);
-		String frase,fraseCodificada=""; int numero;
-		do{
-			System.out.println("Introduce una frase para codificar: ");
-			frase=teclado.nextLine();
-
-			System.out.println("Introduce un numero entre 1 y 10: ");
-			numero=teclado.nextInt();
-
-		}while(numero>10 && numero<1);
+		String fraseCodificada="";
 
 		frase=frase.toUpperCase();
 		for(int i=0;i<frase.length();i++)
@@ -65,25 +85,42 @@ public class tema4_ej08 {
 		System.out.println(fraseCodificada);
 
 	}
-
-	public static void Decodificar(){
+	//aqui dcodifico la palabra que ingrese
+	public static void Decodificar(String frase, int numero){
 		Scanner teclado=new Scanner(System.in);
-		String frase,fraseDeCodificada=""; int numero;
-		do{
-			System.out.println("Introduce una frase para decodificar: ");
-			frase=teclado.nextLine();
-
-			System.out.println("Introduce un numero entre 1 y 10: ");
-			numero=teclado.nextInt();
-
-		}while(numero>10 && numero<1);
-
+		String fraseDeCodificada="";
+		
 		frase=frase.toUpperCase();
 		for(int i=0;i<frase.length();i++)
 			fraseDeCodificada+=(char)(frase.charAt(i)-numero);
 
 		System.out.println(fraseDeCodificada);
 
+	}
+	
+	public static String pedirFrase(){
+		Scanner teclado=new Scanner(System.in);
+		String frase;
+
+		System.out.println("Introduce una frase: ");
+		frase=teclado.nextLine();
+
+		frase=frase.toUpperCase();
+
+		return frase;
+	}
+	
+	public static int pedirNumero(){
+		Scanner teclado=new Scanner(System.in);
+		int numero;
+		
+		do{
+			System.out.println("Introduce un numero entre 1 y 10: ");
+			numero=teclado.nextInt();
+
+		}while(numero>10 && numero<1);
+		
+		return numero;
 	}
 
 
