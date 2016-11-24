@@ -14,6 +14,7 @@ public class tema4_2_ej04 {
 		System.out.println("Introduce el segundo nombre y apellido: ");
 		nombreDos=teclado.nextLine();
 		
+		/* Una forma
 		//Hago la primera frase
 		for(int i=0;i<=nombreDos.indexOf(' ');i++)
 			nombreUnoNuevo+=nombreDos.charAt(i);
@@ -28,6 +29,14 @@ public class tema4_2_ej04 {
 		
 		System.out.println(nombreUnoNuevo);
 		System.out.println(nombreDosNuevo);
+		*/
+		
+		//Segunda forma (más simple)
+		System.out.println(nombreDos.substring(0,nombreDos.indexOf(' ')) +" " +nombreUno.substring(nombreUno.indexOf(' ')+1,nombreUno.length()));
+		System.out.println(nombreUno.substring(0,nombreUno.indexOf(' ')) +" " +nombreDos.substring(nombreDos.indexOf(' ')+1,nombreDos.length()));
+		
+		
+		
 	}
 
 }
