@@ -27,14 +27,14 @@ public class tma4_ej06 {
 					cantidadVocal++;
 				else
 					cantidadCons++; //si es consonante
-			}else if(frase.charAt(i)!=' ') //si no es un espacio, (no quiero que me cuente los espacios como caracteres)
-					cantidadCarac++; //si no est· en el alfabeto ser· un caracter
+			}else if(Character.isDigit(frase.charAt(i))) //si es un digito
+					cantidadCarac++; 
 			
 		}
 		
 		System.out.println("La cantidad de vocales : " +cantidadVocal);
 		System.out.println("La cantidad de consonantes : " +cantidadCons);
-		System.out.println("La cantidad de caracteres :" +cantidadCarac);
+		System.out.println("La cantidad de caracteres num√©ricos :" +cantidadCarac);
 		
 	}
 
