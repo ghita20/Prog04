@@ -1,5 +1,5 @@
 //Programa que pide codificar o decodificar una fras
-//Codificar: dado un numero x, aumenta cada palabra x posiciones m·s
+//Codificar: dado un numero x, aumenta cada palabra x posiciones m√°s
 //Decodificar: dado un numero x, resta cada palabra x posiciones menos
 //eleccion: pide dos opciones :Codificar o Decodificar
 import java.util.Scanner;
@@ -16,19 +16,19 @@ public class tema4_ej08 {
 			frase=pedirFrase();
 			//pido el numero
 			numero=pedirNumero();
-			//la opciÛn ser· lo que la funciÛn eleccion dvuelva
+			//la opci√≥n ser√° lo que la funci√≥n eleccion dvuelva
 			opcion= eleccion();
 			
 			switch(opcion){
 			case 1://si devuelve 1
-				//Llamo a la funciÛn Codificar y le envio la frase y el numero
+				//Llamo a la funci√≥n Codificar y le envio la frase y el numero
 				Codificar(frase, numero); break;
 			case 2://si devuelve 2
-				//Llamo a la funciÛn Decodificar y le envio la frase y el numero
+				//Llamo a la funci√≥n Decodificar y le envio la frase y el numero
 				Decodificar(frase, numero); break;
 			}
 			
-			//llamo a la funciÛn repetir
+			//llamo a la funci√≥n repetir
 			repetir=repetir();
 
 		}while(repetir); //hace el bucle hasta que repetir sea falso
@@ -46,7 +46,7 @@ public class tema4_ej08 {
 		
 		}while(opcion!='s' && opcion!='n');
 		
-		//si la opciÛn elegida es s retorno true
+		//si la opci√≥n elegida es s retorno true
 		if(opcion=='s')
 			return true;
 		else
@@ -54,17 +54,17 @@ public class tema4_ej08 {
 		
 	}
 	
-	//est· funciÛn la utilizo imprimir el men˙ de opciones y pedir una
+	//est√° funci√≥n la utilizo imprimir el men√∫ de opciones y pedir una
 	public static int eleccion(){
 		Scanner teclado=new Scanner(System.in);
 		int opcion;
 		
 		do{
-			System.out.println("Elige una opciÛn: ");
+			System.out.println("Elige una opci√≥n: ");
 			System.out.println("1. Codificar 2. Decodificar");
 			opcion=teclado.nextInt();
 		}while(opcion<1 || opcion>2);
-		//devuelvo la opciÛn elegida
+		//devuelvo la opci√≥n elegida
 		return opcion;
 	}
 
@@ -72,13 +72,28 @@ public class tema4_ej08 {
 	public static void Codificar(String frase, int numero){
 		Scanner teclado=new Scanner(System.in);
 		String fraseCodificada="";
-
+		
+		
+		/*ESTE M√âTODO ES EL DEL BUFFER - CUANDO LLEGA AL FINAL DEL ABECEDARIO EMPIEZA EN A OTRA VEZ
+				String abce="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		
+		for(int i=0;i<frase.length();i++){
+				if((frase.charAt(i)+numero)>=abce.length())
+					fraseCodificada+=abce.charAt( (frase.charAt(i)-65+numero)%26 );
+				else
+					fraseCodificada+=abce.charAt(frase.charAt(i)-65+numero);
+			
+				}
+		*/
+		
+		
+		
 		for(int i=0;i<frase.length();i++)
 			//aumento la posicion del caracter x veces(segun el numero introducido)
-			//y despuÈs guardo ese caracter en fraseCodificada
+			//y despu√©s guardo ese caracter en fraseCodificada
 			fraseCodificada+=(char)(frase.charAt(i)+numero);
 		//hago (char)(frase.charAt(i)+numero) para que al char frase.charAt(i) le sume el numero
-		//y obtendr· un n˙mero int, pero como quiero imprimir el caracter ascii
+		//y obtendr√° un n√∫mero int, pero como quiero imprimir el caracter ascii
 		//entonces lo convierto a char de nuevo con (char)
 
 		System.out.println(fraseCodificada);
@@ -92,6 +107,18 @@ public class tema4_ej08 {
 		for(int i=0;i<frase.length();i++)
 			//a cada caracter de la frase le resto el numero introducido
 			fraseDeCodificada+=(char)(frase.charAt(i)-numero);
+		
+		
+		/*ESTE M√âTODO ES EL DEL BUFFER - CUANDO LLEGA AL FINAL DEL ABECEDARIO EMPIEZA EN A OTRA VEZ
+			String abce="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		for(int i=0;i<frase.length();i++)
+			
+			if((frase.charAt(i)-65-numero)<0)
+				fraseDeCodificada+=abce.charAt( (frase.charAt(i)-65-numero)+26 );
+			else
+				fraseDeCodificada+=abce.charAt(frase.charAt(i)-65-numero);
+		*/
+		
 		
 		//imprimo la frase decodificada
 		System.out.println(fraseDeCodificada);
