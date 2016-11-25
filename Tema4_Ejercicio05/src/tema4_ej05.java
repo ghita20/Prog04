@@ -16,14 +16,14 @@ public class tema4_ej05 {
 		//recorro la frase
 		for(int i=0;i<frase.length();i++){
 			//si i resto de 2 es 0 es par
-			if(i%2==0)
+			if((i+1)%2==0)
 				par+=frase.charAt(i);
 			else //si no es impar
 				impar+=frase.charAt(i);
 		}
 		
-		System.out.println("Las palabras en posición par : " +par);
-		System.out.println("Las palabras en posición impar : " +impar);
+		System.out.println("Las palabras en posiciÃ³n par : " +par);
+		System.out.println("Las palabras en posiciÃ³n impar : " +impar);
 	}
 
 }
